@@ -22,13 +22,28 @@ import java.io.Serializable;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
+    /**
+     * ID
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //para generar los numeros autoincremental
     private Integer id;
+
+    /**
+     * Email
+     */
     @Column(name = "user_mail", unique = true, length = 50, nullable = false)
     private String email;
+
+    /**
+     * Password
+     */
     @Column(name = "user_password", length = 50, nullable = false)
     private String password;
+
+    /**
+     * Name
+     */
     @Column(name = "user_name", length = 80, nullable = false)
     private String name;
 }
