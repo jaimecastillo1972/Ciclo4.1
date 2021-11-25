@@ -1,12 +1,13 @@
 package com.usa.divinacomedia.app.repositories.Crud;
 
 import com.usa.divinacomedia.app.model.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserCrudRepository extends CrudRepository<User, Integer> {
+public interface UserCrudRepository extends MongoRepository<User, Integer> {
     /**
      * Encontrar por nombre
      * @param name
@@ -28,6 +29,9 @@ public interface UserCrudRepository extends CrudRepository<User, Integer> {
      * @return
      */
     public Optional<User> findByEmail(String email);
+
+    @Query("{id:?0}")
+    public Optional<User> getUserById(Integer id);
 
     /**
      * Encontrar por email y password

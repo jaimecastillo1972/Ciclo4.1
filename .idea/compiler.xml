@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="divinacomedia" />
         <module name="Divinacomedia" />
+        <module name="divinacomediareto2" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Divinacomedia" options="-parameters" />
       <module name="divinacomedia" options="-parameters" />
+      <module name="divinacomediareto2" options="-parameters" />
     </option>
   </component>
 </project>

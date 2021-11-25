@@ -74,7 +74,7 @@ public class UserService {
             return  user.get();
         }
         else{
-            return new User(null, email, password, "NO DEFINIDO");
+            return new User();
         }
     }
 }

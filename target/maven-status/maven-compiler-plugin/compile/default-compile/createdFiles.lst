@@ -1,6 +1,0 @@
-com\usa\divinacomedia\app\repositories\Crud\UserCrudRepository.class
-com\usa\divinacomedia\DivinacomediaApplication.class
-com\usa\divinacomedia\app\model\User.class
-com\usa\divinacomedia\app\repositories\UserRepository.class
-com\usa\divinacomedia\app\controller\UserController.class
-com\usa\divinacomedia\app\services\UserService.class

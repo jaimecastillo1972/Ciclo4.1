@@ -42,11 +42,22 @@ public class UserController {
     }
 
     /**
+     * Metodo PUT
+     * @param user
+     * @return
+     */
+    @PutMapping("/update") //PUT
+    @ResponseStatus(HttpStatus.CREATED)
+    public User update(@RequestBody User user){
+        return service.update(user);
+    }
+
+    /**
      * Metodo GET entrada Email
      * @param email
      * @return
      */
-    @GetMapping("/{email}")
+    @GetMapping("emailexist/{email}")
     public boolean existEmail(@PathVariable("email") String email){
         return service.getUserByEmail(email);
     }
