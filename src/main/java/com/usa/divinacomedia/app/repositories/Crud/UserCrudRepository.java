@@ -30,8 +30,6 @@ public interface UserCrudRepository extends MongoRepository<User, Integer> {
      */
     public Optional<User> findByEmail(String email);
 
-    @Query("{id:?0}")
-    public Optional<User> getUserById(Integer id);
 
     /**
      * Encontrar por email y password
@@ -40,4 +38,14 @@ public interface UserCrudRepository extends MongoRepository<User, Integer> {
      * @return
      */
     public Optional<User> findByEmailAndPassword(String email, String password);
+
+    /**
+     *
+     * @param id
+     * @param email
+     * @param name
+     * @return
+     */
+    public List<User> findByIdOrEmailOrName(Integer id, String email, String name);
+
 }

@@ -13,7 +13,6 @@ import javax.persistence.Id;
 @Document(collection = "hairproducts")
 public class HairProduct {
     @Id
-
     private String reference;
     private String brand;
     private String category;

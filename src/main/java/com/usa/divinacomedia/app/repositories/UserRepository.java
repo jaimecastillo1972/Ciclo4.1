@@ -4,6 +4,7 @@ package com.usa.divinacomedia.app.repositories;
 import com.usa.divinacomedia.app.model.User;
 import com.usa.divinacomedia.app.repositories.Crud.UserCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -55,6 +56,7 @@ public class UserRepository {
         return repository.findByEmail(email);
     }
 
+
     /**
      * Obtener registro por nombre o email
      * @param name
@@ -83,4 +85,20 @@ public class UserRepository {
     public User save(User user){
         return repository.save(user);
     }
+
+    public void delete(Integer id){
+        repository.deleteById(id);
+    }
+
+    /**
+     *
+     * @param id
+     * @param email
+     * @param name
+     * @return
+     */
+    public List<User> getUserByIdOrEmailOrName(Integer id, String email, String name){
+        return repository.findByIdOrEmailOrName(id,email,name);
+    }
+
 }

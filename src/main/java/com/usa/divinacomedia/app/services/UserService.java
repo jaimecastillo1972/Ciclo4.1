@@ -28,30 +28,36 @@ public class UserService {
     }
 
     /**
-     * Guardar registro
+     *
+     * @param id
+     * @return
+     */
+    public Optional<User> getUserById(Integer id){
+        return getUserById(id);
+    }
+
+    /**
+     *
      * @param user
      * @return
      */
     public User save(User user){
         if(user.getId()==null){
-            List<User> existUsers=repository.getUserByNameOrEmail(user.getName(), user.getEmail());
-            if(existUsers.isEmpty()){
-                return repository.save(user);
-            }
-            else{
+            return user;
+        }else{
+            if(user.getIdentification()==null || user.getEmail()==null || user.getName()==null || user.getPassword()==null || user.getType()==null){
                 return user;
-            }
-        }
-        else{
-            Optional<User> existUser=repository.getUserById(user.getId());
-            if(existUser.isEmpty()){
-                return repository.save(user);
-            }
-            else{
-                return user;
+            }else{
+                List<User> existsUsers = repository.getUserByIdOrEmailOrName(user.getId(),user.getEmail(),user.getName());
+                if(existsUsers.isEmpty()){
+                    return repository.save(user);
+                }else {
+                    return user;
+                }
             }
         }
     }
+
 
     /**
      * Obtener registro por email
@@ -76,5 +82,62 @@ public class UserService {
         else{
             return new User();
         }
+    }
+
+    /**
+     *
+     * @param user
+     * @return
+     */
+    public User update(User user){
+        Optional<User> existsUser = repository.getUserById(user.getId());
+        if(existsUser.isPresent()){
+            if (user.getIdentification()!=null){
+                existsUser.get().setIdentification(user.getIdentification());
+            }
+            if (user.getName()!=null){
+                existsUser.get().setName(user.getName());
+            }
+            if (user.getBirthtDay()!=null){
+                existsUser.get().setBirthtDay(user.getBirthtDay());
+            }
+            if (user.getMonthBirthtDay()!=null){
+                existsUser.get().setMonthBirthtDay(user.getMonthBirthtDay());
+            }
+            if (user.getAddress()!=null){
+                existsUser.get().setAddress(user.getAddress());
+            }
+            if (user.getCellPhone()!=null){
+                existsUser.get().setCellPhone(user.getCellPhone());
+            }
+            if (user.getEmail()!=null){
+                existsUser.get().setEmail(user.getEmail());
+            }
+            if (user.getPassword()!=null){
+                existsUser.get().setPassword(user.getPassword());
+            }
+            if (user.getZone()!=null){
+                existsUser.get().setZone(user.getZone());
+            }
+            if (user.getType()!=null){
+                existsUser.get().setType(user.getType());
+            }
+            return repository.save(existsUser.get());
+        }else {
+            return user;
+        }
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public boolean delete(Integer id){
+        Boolean aBoolean=getUserById(id).map(user ->{
+            repository.delete(user.getId());
+            return true;
+        }).orElse(false);
+        return aBoolean;
     }
 }

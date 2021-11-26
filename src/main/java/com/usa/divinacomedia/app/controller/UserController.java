@@ -52,6 +52,12 @@ public class UserController {
         return service.update(user);
     }
 
+    @DeleteMapping("/{id}") //DELETE
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable ("id") Integer id){
+        return service.delete(id);
+    }
+
     /**
      * Metodo GET entrada Email
      * @param email
@@ -72,4 +78,6 @@ public class UserController {
     public User authUser(@PathVariable("email") String email, @PathVariable("password") String password){
         return service.getUserByEmailAndPassword(email, password);
     }
+
+
 }
