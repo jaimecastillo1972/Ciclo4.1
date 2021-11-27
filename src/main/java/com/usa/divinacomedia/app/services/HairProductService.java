@@ -1,9 +1,7 @@
 package com.usa.divinacomedia.app.services;
 
 import com.usa.divinacomedia.app.model.HairProduct;
-import com.usa.divinacomedia.app.model.User;
 import com.usa.divinacomedia.app.repositories.HairProductRepository;
-import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,21 +66,26 @@ public class HairProductService {
             if (product.getPhotography()!=null){
                 existsProduct.get().setPhotography(product.getPhotography());
             }
-
-
             return repository.save(existsProduct.get());
         }else {
             return product;
         }
     }
 
-/*
-    public boolean delete(String reference){
-        Boolean aBoolean=getByReference(reference).map(product ->{
+    /**
+     * @param referenceId
+     * @return
+     */
+    public boolean deleteReference(String referenceId) {
+        Boolean aBoolean = getHairProduct(referenceId).map(product -> {
             repository.delete(product.getReference());
             return true;
         }).orElse(false);
         return aBoolean;
     }
-*/
+
+    private Optional<HairProduct> getHairProduct(String referenceId) {
+        return repository.getByReference(referenceId);
+    }
+
 }

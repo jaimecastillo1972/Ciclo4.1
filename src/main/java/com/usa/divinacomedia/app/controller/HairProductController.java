@@ -1,7 +1,6 @@
 package com.usa.divinacomedia.app.controller;
 
 import com.usa.divinacomedia.app.model.HairProduct;
-import com.usa.divinacomedia.app.model.User;
 import com.usa.divinacomedia.app.services.HairProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,13 +49,13 @@ public class HairProductController {
 
     /**
      *
-     * @param reference
+     * @param referenceId
      * @return
      */
-/*
+
     @DeleteMapping("/{reference}") //DELETE
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable ("reference") String reference){
-        return service.delete(reference);
-    }*/
+    public boolean delete(@PathVariable ("reference") String referenceId){
+        return service.deleteReference(referenceId);
+    }
 }
