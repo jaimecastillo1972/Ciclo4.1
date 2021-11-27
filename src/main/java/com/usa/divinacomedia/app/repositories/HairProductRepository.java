@@ -46,8 +46,8 @@ public class HairProductRepository {
      *
      * @param id
      */
-    public void delete(String id){
-        repository.deleteById(id);
+    public void delete(String reference){
+        repository.deleteById(reference);
     }
 
 }

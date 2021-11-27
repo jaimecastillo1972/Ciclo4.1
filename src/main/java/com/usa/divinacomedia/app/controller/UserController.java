@@ -52,6 +52,11 @@ public class UserController {
         return service.update(user);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @DeleteMapping("/{id}") //DELETE
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable ("id") Integer id){
