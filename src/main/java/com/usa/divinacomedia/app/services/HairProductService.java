@@ -57,10 +57,10 @@ public class HairProductService {
             if (product.getDescription()!=null){
                 existsProduct.get().setDescription(product.getDescription());
             }
-            if (product.getPrice()==0){
+            if (product.getPrice()!=0){
                 existsProduct.get().setPrice(product.getPrice());
             }
-            if (product.getQuantity()==0){
+            if (product.getQuantity()!=0){
                 existsProduct.get().setQuantity(product.getQuantity());
             }
             if (product.getPhotography()!=null){
