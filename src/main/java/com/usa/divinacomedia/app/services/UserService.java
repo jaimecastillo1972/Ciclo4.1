@@ -33,7 +33,7 @@ public class UserService {
      * @return
      */
     public Optional<User> getUserById(Integer id){
-        return getUserById(id);
+        return repository.getUserById(id);
     }
 
     /**
@@ -133,7 +133,12 @@ public class UserService {
      * @param id
      * @return
      */
+    /*public void delete(Integer id){
+        repository.delete(id);
+    }*/
+
     public boolean delete(Integer id){
+        repository.delete(id);
         Boolean aBoolean=getUserById(id).map(user ->{
             repository.delete(user.getId());
             return true;
