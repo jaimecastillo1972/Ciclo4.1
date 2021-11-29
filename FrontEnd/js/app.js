@@ -8,7 +8,7 @@ $("#login").click(function () {
     };
     $.ajax({
       url:
-        "http://144.22.56.67:8080/api/user/" + data.email + "/" + data.password,
+        "http://localhost:8080/api/user/" + data.email + "/" + data.password,
       method: "GET",
       dataType: "json",
       success: function (response) {
@@ -36,7 +36,7 @@ $("#registrar").click(function () {
         name: $("#userRegistro").val(),
       };
       $.ajax({
-        url: "http://144.22.56.67:8080/api/user/new",
+        url: "http://localhost:8080/api/user/new",
         method: "POST",
         dataType: "json",
         data: JSON.stringify(datos),
