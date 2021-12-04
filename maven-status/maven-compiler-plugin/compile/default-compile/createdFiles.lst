@@ -1,0 +1,11 @@
+com\segioarboleda\divinacomedia\app\repositories\crud\UserCrudRepository.class
+com\segioarboleda\divinacomedia\DivinacomediaApplication.class
+com\segioarboleda\divinacomedia\app\services\HairProductService.class
+com\segioarboleda\divinacomedia\app\repositories\HairProductRepository.class
+com\segioarboleda\divinacomedia\app\model\User.class
+com\segioarboleda\divinacomedia\app\controller\HairProductController.class
+com\segioarboleda\divinacomedia\app\model\HairProduct.class
+com\segioarboleda\divinacomedia\app\controller\UserController.class
+com\segioarboleda\divinacomedia\app\repositories\crud\HairProductCrudRepository.class
+com\segioarboleda\divinacomedia\app\services\UserService.class
+com\segioarboleda\divinacomedia\app\repositories\UserRepository.class
