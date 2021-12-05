@@ -85,7 +85,7 @@ public class HairProductService {
         return aBoolean;
     }
 
-    private Optional<HairProduct> getProductById(String id) {
-        return repository.getProductById(id);
+    public Optional<HairProduct> getProductById(String reference) {
+        return repository.getProductById(reference);
     }
 }
