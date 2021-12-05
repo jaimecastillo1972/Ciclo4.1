@@ -21,6 +21,16 @@ public class HairProductService {
         return repository.getAll();
     }
 
+
+    /**
+     * 
+     * @param reference
+     * @return
+     */
+    public Optional<HairProduct> getProductById(String reference) {
+        return repository.getProductById(reference);
+    }
+
     /**
      *
      * @param product
@@ -83,9 +93,5 @@ public class HairProductService {
             return true;
         }).orElse(false);
         return aBoolean;
-    }
-
-    public Optional<HairProduct> getProductById(String reference) {
-        return repository.getProductById(reference);
     }
 }
