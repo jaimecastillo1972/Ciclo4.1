@@ -14,8 +14,7 @@ import javax.persistence.Id;
 @Document(collection = "hairproducts")
 public class HairProduct {
     @Id
-    @JsonProperty("reference")
-    private String id;
+    private String reference;
     private String brand;
     private String category;
     private String name;

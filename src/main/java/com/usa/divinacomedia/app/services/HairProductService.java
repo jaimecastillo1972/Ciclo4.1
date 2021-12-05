@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.DoubleStream;
 
 @Service
 public class HairProductService {
@@ -28,10 +27,10 @@ public class HairProductService {
      * @return
      */
     public HairProduct save(HairProduct product){
-        if(product.getId()==null){
+        if(product.getReference()==null){
             return product;
         }else{
-            Optional<HairProduct> existsProduct = repository.getProductById(product.getId());
+            Optional<HairProduct> existsProduct = repository.getProductById(product.getReference());
             if(existsProduct.isPresent()){ //si coloca .isEmpty debo cambiar 2x1
                 return product; //cambio2xcambio1
             }else {
@@ -42,10 +41,10 @@ public class HairProductService {
     }
 
     public HairProduct update(HairProduct product){
-        Optional<HairProduct> existsProduct = repository.getProductById(product.getId());
+        Optional<HairProduct> existsProduct = repository.getProductById(product.getReference());
         if(existsProduct.isPresent()){
-            if (product.getId()!=null){
-                existsProduct.get().setId(product.getId());
+            if (product.getReference()!=null){
+                existsProduct.get().setReference(product.getReference());
             }
             if (product.getBrand()!=null){
                 existsProduct.get().setBrand(product.getBrand());
@@ -80,7 +79,7 @@ public class HairProductService {
      */
     public boolean delete(String id) {
         Boolean aBoolean = getProductById(id).map(product -> {
-            repository.delete(product.getId());
+            repository.delete(product.getReference());
             return true;
         }).orElse(false);
         return aBoolean;
@@ -89,9 +88,4 @@ public class HairProductService {
     private Optional<HairProduct> getProductById(String id) {
         return repository.getProductById(id);
     }
-
-    //private Optional<HairProduct> getHairProduct(String reference) {
-    //    return repository.getByReference(reference);
-    //}
-
 }
