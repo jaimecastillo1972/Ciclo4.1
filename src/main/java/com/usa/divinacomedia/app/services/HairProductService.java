@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.DoubleStream;
 
 @Service
 public class HairProductService {
@@ -27,23 +28,24 @@ public class HairProductService {
      * @return
      */
     public HairProduct save(HairProduct product){
-        if(product.getReference()==null){
+        if(product.getId()==null){
             return product;
         }else{
-            Optional<HairProduct> existsProduct = repository.getByReference(product.getReference());
-            if(existsProduct.isEmpty()){
-                return repository.save(product);
+            Optional<HairProduct> existsProduct = repository.getProductById(product.getId());
+            if(existsProduct.isPresent()){ //si coloca .isEmpty debo cambiar 2x1
+                return product; //cambio2xcambio1
             }else {
-                return product;
+                return repository.save(product);//cambio1xcambio2
+
             }
         }
     }
 
     public HairProduct update(HairProduct product){
-        Optional<HairProduct> existsProduct = repository.getByReference(product.getReference());
+        Optional<HairProduct> existsProduct = repository.getProductById(product.getId());
         if(existsProduct.isPresent()){
-            if (product.getReference()!=null){
-                existsProduct.get().setReference(product.getReference());
+            if (product.getId()!=null){
+                existsProduct.get().setId(product.getId());
             }
             if (product.getBrand()!=null){
                 existsProduct.get().setBrand(product.getBrand());
@@ -73,19 +75,23 @@ public class HairProductService {
     }
 
     /**
-     * @param referenceId
+     * @param id
      * @return
      */
-    public boolean deleteReference(String referenceId) {
-        Boolean aBoolean = getHairProduct(referenceId).map(product -> {
-            repository.delete(product.getReference());
+    public boolean delete(String id) {
+        Boolean aBoolean = getProductById(id).map(product -> {
+            repository.delete(product.getId());
             return true;
         }).orElse(false);
         return aBoolean;
     }
 
-    private Optional<HairProduct> getHairProduct(String referenceId) {
-        return repository.getByReference(referenceId);
+    private Optional<HairProduct> getProductById(String id) {
+        return repository.getProductById(id);
     }
+
+    //private Optional<HairProduct> getHairProduct(String reference) {
+    //    return repository.getByReference(reference);
+    //}
 
 }

@@ -20,7 +20,7 @@ public class HairProductController {
      * @return
      */
     @GetMapping("/all") //GET
-    public List<HairProduct> getHairProducts(){
+    public List<HairProduct> getAll(){
         return service.getAll();
     }
 
@@ -49,13 +49,13 @@ public class HairProductController {
 
     /**
      *
-     * @param referenceId
+     * @param id
      * @return
      */
 
-    @DeleteMapping("/{reference}") //DELETE
+    @DeleteMapping("/{id}") //DELETE
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable ("reference") String referenceId){
-        return service.deleteReference(referenceId);
+    public boolean delete(@PathVariable ("id") String id){
+        return service.delete(id);
     }
 }

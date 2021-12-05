@@ -26,11 +26,11 @@ public class HairProductRepository {
 
     /**
      *
-     * @param reference
+     * @param id
      * @return
      */
-    public Optional<HairProduct> getByReference(String reference){
-        return repository.findById(reference);
+    public Optional<HairProduct> getProductById(String id){
+        return repository.findById(id);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.usa.divinacomedia.app.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,8 @@ import javax.persistence.Id;
 @Document(collection = "hairproducts")
 public class HairProduct {
     @Id
-    private String reference;
+    @JsonProperty("reference")
+    private String id;
     private String brand;
     private String category;
     private String name;

@@ -4,7 +4,6 @@ package com.usa.divinacomedia.app.repositories;
 import com.usa.divinacomedia.app.model.User;
 import com.usa.divinacomedia.app.repositories.Crud.UserCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
