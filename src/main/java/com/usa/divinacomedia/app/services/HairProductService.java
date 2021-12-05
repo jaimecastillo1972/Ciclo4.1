@@ -50,6 +50,11 @@ public class HairProductService {
         }
     }
 
+    /**
+     *
+     * @param product
+     * @return
+     */
     public HairProduct update(HairProduct product){
         Optional<HairProduct> existsProduct = repository.getProductById(product.getReference());
         if(existsProduct.isPresent()){
@@ -77,9 +82,9 @@ public class HairProductService {
             if (product.getPhotography()!=null){
                 existsProduct.get().setPhotography(product.getPhotography());
             }
-            return repository.save(existsProduct.get());
-        }else {
             return product;
+        }else {
+            return repository.save(existsProduct.get());
         }
     }
 
