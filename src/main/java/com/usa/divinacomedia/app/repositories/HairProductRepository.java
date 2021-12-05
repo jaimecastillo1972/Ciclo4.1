@@ -42,10 +42,6 @@ public class HairProductRepository {
         return repository.save(product);
     }
 
-    public void update(HairProduct product){
-        repository.update(product);
-    }
-
     /**
      *
      * @param reference

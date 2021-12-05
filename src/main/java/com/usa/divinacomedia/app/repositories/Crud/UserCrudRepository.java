@@ -2,7 +2,6 @@ package com.usa.divinacomedia.app.repositories.Crud;
 
 import com.usa.divinacomedia.app.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 import java.util.Optional;

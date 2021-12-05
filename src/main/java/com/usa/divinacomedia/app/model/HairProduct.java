@@ -14,6 +14,7 @@ import javax.persistence.Id;
 public class HairProduct {
     @Id
     private String reference;
+    
     private String brand;
     private String category;
     private String name;
