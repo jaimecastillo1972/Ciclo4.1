@@ -22,13 +22,13 @@
                     <img src="img/img_avatar2.png" alt="Avatar" class="avatar rounded-circle img-fluid">
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" required>
                 <div class="col-4 mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" placeholder="name@example.com">
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" required>
                 <div class="col-4 mb-3">
                     <label for="contrasena" class="form-label">Password</label>
                     <input type="password" class="form-control" id="contrasena">
@@ -37,7 +37,6 @@
             <div class="row justify-content-center">
                 <div class="col-4 mb-3 d-grid gap-2">
                     <button type="button" class="btn btn-success" id="login">Login</button>
-                    <link rel="stylesheet" href="userForm.html">
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -58,26 +57,26 @@
                     <h5 class="modal-title" id="exampleModalLabel">Crear cuenta</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" required>
                     <div class="row justify-content-center">
                         <div class="mb-3">
                             <label for="emailRegistro" class="form-label">Email:</label>
                             <input type="email" class="form-control" id="emailRegistro" placeholder="name@example.com">
                         </div>
                     </div>
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" required>
                         <div class="mb-3">
                             <label for="userRegistro" class="form-label">User name:</label>
                             <input type="text" class="form-control" id="userRegistro" placeholder="Nombre de usuario">
                         </div>
                     </div>
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" required>
                         <div class="mb-3">
                             <label for="contrasenaRegistro" class="form-label">Password:</label>
                             <input type="password" class="form-control" id="contrasenaRegistro" placeholder="Password">
                         </div>
                     </div>
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center" required>
                         <div class="mb-3">
                             <label for="contrasenaRegistro2" class="form-label" onchange="">Confirmar password:</label>
                             <input type="password" class="form-control" id="contrasenaRegistro2" placeholder="Confirmar password">
@@ -98,7 +97,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
-    <script type="text/javascript" src="js/user.js"></script>
+    <script src="js/user.js"></script>
 </body>
 
 </html>
