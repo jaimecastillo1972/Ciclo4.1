@@ -24,8 +24,11 @@ public class HairProduct {
     private String name;
     @JsonProperty("description")
     private String description;
+    @JsonProperty("availability")
     private boolean availability = true;
+    @JsonProperty("price")
     private double price;
+    @JsonProperty("quantity")
     private int quantity;
     @JsonProperty("photography")
     private String photography;
