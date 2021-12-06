@@ -44,18 +44,19 @@ public class HairProductController {
     @PutMapping("/update") //PUT
     @ResponseStatus(HttpStatus.CREATED)
     public HairProduct update(@RequestBody HairProduct product){
-        return service.update(product);
+        service.update(product);
+        return product;
     }
 
     /**
      *
-     * @param id
+     * @param reference
      * @return
      */
 
-    @DeleteMapping("/{id}") //DELETE
+    @DeleteMapping("/{reference}") //DELETE
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable ("id") String id){
-        return service.delete(id);
+    public boolean delete(@PathVariable ("reference") String reference){
+        return service.delete(reference);
     }
 }
